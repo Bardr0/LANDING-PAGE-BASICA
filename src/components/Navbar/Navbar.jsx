@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="flex justify-between items-center sm:px-12 sm:py-6 px-4 py-3">
+      <div className="flex justify-between items-center sm:px-12 sm:py-6 px-4 py-3   bg-purple-900">
         {/*logo nabvar*/}
         <div>
           <img src={Logo} alt="Logo del sitio" className="w-[100px]" />
@@ -115,6 +115,45 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
+      </div>
+
+      {/*menu movile*/}
+      <div
+        className={`md:hidden absolute w-full bg-purple-950 transition-all duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        <ul className="flex flex-col px-4 py-2">
+          {navbarlinks.map((link) => (
+            <li key={link.id} className="py-2 text-center">
+              <a
+                className="text-white  hover:text-sky-200  "
+                href={link.link}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <ul className="flex space-x-4 px-4 py-2 border-t border-purple-700 justify-center">
+          {navbarRedes.map((link) => (
+            <li key={link.id}>
+              <a
+                target="_blank"
+                rel="noonpener noreferrer"
+                className="inline-block"
+                href={link.link}
+                onClick={() => setIsOpen(false)}
+              >
+                <i
+                  className={`${link.icon} text-lg text-white hover:text-sky-200 `}
+                ></i>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );
