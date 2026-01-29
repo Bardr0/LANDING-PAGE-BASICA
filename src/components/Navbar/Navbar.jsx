@@ -48,8 +48,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <div className="flex justify-between items-center sm:px-12 sm:py-6 px-4 py-3   bg-purple-900">
+    <nav className="fixed top-0 left-0 bg-purple-900/30 w-full backdrop-blur-md z-50">
+      <div className="flex justify-between items-center sm:px-12 sm:py-6 px-4 py-3  ">
         {/*logo nabvar*/}
         <div>
           <img src={Logo} alt="Logo del sitio" className="w-[100px]" />
